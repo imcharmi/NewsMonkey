@@ -1,0 +1,33 @@
+handleNext = async () => {
+    this.setState({
+      page: this.state.page + 1,
+    });
+    this.updateNews(this.state.page + 1);
+  };
+
+  handlePrevious = async () => {
+    this.setState({
+      page: this.state.page - 1,
+    });
+    this.updateNews(this.state.page - 1);
+  };
+ 
+ <div className="space">
+          <Button
+            className="btn btn-primary"
+            onClick={this.handlePrevious}
+            disabled={this.state.page > 1 ? false : true}
+          >
+            &larr;previous
+          </Button>
+          <Button
+            disabled={
+              this.state.page + 1 >
+              Math.ceil(this.state.totalResults / this.props.pageSize)
+            }
+            className="btn btn-primary"
+            onClick={this.handleNext}
+          >
+            Next &rarr;
+          </Button>
+        </div>
